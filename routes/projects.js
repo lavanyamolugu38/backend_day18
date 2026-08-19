@@ -66,7 +66,7 @@ router.get("/active", async (req, res) => {
           name
         )
       `)
-      .eq("status", "ACTIVE")
+      .eq("status", "Active")
       .order("id", { ascending: true });
 
     if (error) {
@@ -135,7 +135,7 @@ router.post("/", async (req, res) => {
           department_id: Number(department_id),
           start_date,
           expected_hours: Number(expected_hours),
-          status: "ACTIVE",
+          status: "Active",
         },
       ])
       .select(`

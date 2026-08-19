@@ -8,10 +8,11 @@ const employeesRouter = require("./routes/employees");
 const projectsRouter = require("./routes/projects");
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://localhost:3002"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -30,12 +31,8 @@ app.get("/", (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 3001;
-
 app.listen(PORT, "127.0.0.1", () => {
   console.log(
     `WorkHub Backend running on http://127.0.0.1:${PORT}`
   );
 });
-
-
